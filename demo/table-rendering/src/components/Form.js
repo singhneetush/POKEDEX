@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import {
 	Box,
 	Button,
@@ -25,26 +25,40 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 
 const Form = () => {
+	const [users, setUsers] = useState([]); //global state
+	const [userData, setUserData] = useState(); //per person state
+
+
+	const defaultUser = {
+		fullName: '',
+		email: '',
+		phone: '',
+		gender: [],
+		course: [],
+	};
 	const {
 		register,
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm();
+	} = useForm({
+		defaultValues: defaultUser,
+	});
+
 	const onSubmit = (data) => {
+		// setUserData({...data})
 		console.log(data);
 		reset();
 	};
-	const [age, setAge] = React.useState('');
+
+	const [course, setCourse] = React.useState('');
 
 	const handleChange = (event) => {
-		setAge(event.target.value);
+		setCourse(event.target.value);
 	};
 	const style = { marginY: 5 };
 
-	useEffect(() => {
-		reset();
-	}, []);
+	console.log(register);
 
 	return (
 		<Box>
@@ -148,7 +162,6 @@ const Form = () => {
 						<FormLabel id='demo-radio-buttons-group-label'>Gender</FormLabel>
 						<RadioGroup
 							aria-labelledby='demo-radio-buttons-group-label'
-							defaultValue='female'
 							name='radio-buttons-group'>
 							<FormControlLabel
 								value='female'
@@ -192,7 +205,7 @@ const Form = () => {
 									{...register('course', { required: 'Choose your Course' })}
 									labelId='demo-simple-select-label'
 									id='demo-simple-select'
-									value={age}
+									value={course}
 									label='Choose Your Course'
 									onChange={handleChange}>
 									<MenuItem value={'Web Development'}>Web Development</MenuItem>

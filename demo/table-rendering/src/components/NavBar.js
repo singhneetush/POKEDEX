@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Form from './Form';
 import { Modal, Paper } from '@mui/material';
+import FormNew from './FormNew';
 
 export default function NavBar() {
 	const [open, setOpen] = React.useState(false);
@@ -15,7 +16,8 @@ export default function NavBar() {
 	const handleClose = () => setOpen(false);
 	const style = {
 		width: 500,
-		marginBottom: 10,
+
+		maxHeight: 'min-content',
 	};
 	return (
 		<Box sx={{ flexGrow: 1 }}>
@@ -41,8 +43,8 @@ export default function NavBar() {
 							flexDirection: 'column',
 							justifyContent: 'center',
 							alignItems: 'center',
-							maxHeight: 'fit-content',
-							padding: '30px',
+							maxHeight: 'min-content',
+							padding: '20px',
 						}}
 						open={open}
 						onClose={handleClose}
@@ -50,7 +52,7 @@ export default function NavBar() {
 						aria-describedby='modal-modal-description'>
 						<Paper sx={style}>
 							<Box sx={{ padding: 10 }}>
-								<Form sx={style} />
+								<FormNew sx={style} />
 							</Box>
 						</Paper>
 					</Modal>

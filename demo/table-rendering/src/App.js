@@ -1,19 +1,25 @@
 import './App.css';
 import NavBar from './components/NavBar';
-import ReactVirtualizedTable from './components/Table';
+import ColumnGroupingTable from './components/Table';
 import Box from '@mui/material/Box';
-// import Form from './components/Form';
+import { useState } from 'react';
+import Example from './components/Example';
 
 function App() {
+	// const addUser = (userData) => {
+	// 	setUserData([...userDatas, userData]);
+	// };
+
 	return (
 		<div>
 			<NavBar />
-			<Box sx={{ margin: 15 }}>
-				<ReactVirtualizedTable />
-				
-			</Box>
+			{/* <Box sx={{ margin: 15 }}>
+				<ColumnGroupingTable  />
+			</Box> */}
+			{/* <Example /> */}
 		</div>
 	);
 }
 
 export default App;
+
