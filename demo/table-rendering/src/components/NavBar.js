@@ -6,9 +6,10 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import Form from './Form';
+// import Form from './Form';
 import { Modal, Paper } from '@mui/material';
-import FormNew from './FormNew';
+// import FormNew from './FormNew';
+import UserForm from './forms/UserForm';
 
 export default function NavBar() {
 	const [open, setOpen] = React.useState(false);
@@ -31,7 +32,11 @@ export default function NavBar() {
 						sx={{ mr: 2 }}>
 						<MenuIcon />
 					</IconButton>
-					<Typography variant='h5' component='h1' sx={{ flexGrow: 1 }}>
+					<Typography
+						variant='h5'
+						color='white'
+						component='h1'
+						sx={{ flexGrow: 1 }}>
 						React Table Rendering
 					</Typography>
 					<Button color='error' variant='contained' onClick={handleOpen}>
@@ -52,7 +57,7 @@ export default function NavBar() {
 						aria-describedby='modal-modal-description'>
 						<Paper sx={style}>
 							<Box sx={{ padding: 10 }}>
-								<FormNew sx={style} />
+								<UserForm sx={style} />
 							</Box>
 						</Paper>
 					</Modal>
