@@ -1,13 +1,14 @@
+import { Button } from '@mui/material';
 import React from 'react';
 
 const UserTable = (props) => {
 	return (
-		<table>
+		<table className='table table-hover'>
 			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Email</th>
-					<th>Actions</th>
+				<tr className='hover'>
+					<th className='text-success p-5'>Name</th>
+					<th className='text-success p-5'>Username</th>
+					<th className='text-success p-5'>Actions</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -15,28 +16,30 @@ const UserTable = (props) => {
 					props.users.map((user) => (
 						<tr key={user.id}>
 							<td>{user.name}</td>
-							<td>{user.email}</td>
+							<td>{user.username}</td>
 							<td>
-								<button
-									className='button muted-button'
+								<Button
+									variant='contained' sx={{marginRight:3}}
 									onClick={() => {
 										props.edit(user);
 									}}>
 									Edit
-								</button>
-								<button
-									className='button muted-button'
+								</Button>
+								<Button
+									variant='contained'
 									onClick={() => {
 										props.delete(user.id);
 									}}>
 									Delete
-								</button>
+								</Button>
 							</td>
 						</tr>
 					))
 				) : (
 					<tr>
-						<td colSpan={3}>No users</td>
+						<td className=' p-5' colSpan={3}>
+							No users
+						</td>
 					</tr>
 				)}
 			</tbody>

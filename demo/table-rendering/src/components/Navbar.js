@@ -11,7 +11,7 @@ import { Modal, Paper } from '@mui/material';
 // import FormNew from './FormNew';
 import UserForm from './forms/UserForm';
 
-export default function NavBar() {
+export default function Navbar() {
 	const [open, setOpen] = React.useState(false);
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
@@ -39,8 +39,12 @@ export default function NavBar() {
 						sx={{ flexGrow: 1 }}>
 						React Table Rendering
 					</Typography>
-					<Button color='error' variant='contained' onClick={handleOpen}>
-						Register{' '}
+					{/* <Button
+						color='error'
+						type='button'
+						variant='contained'
+						onClick={handleOpen}>
+						Register
 					</Button>
 					<Modal
 						sx={{
@@ -60,7 +64,7 @@ export default function NavBar() {
 								<UserForm sx={style} />
 							</Box>
 						</Paper>
-					</Modal>
+					</Modal> */}
 				</Toolbar>
 			</AppBar>
 		</Box>
